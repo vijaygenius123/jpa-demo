@@ -39,3 +39,5 @@ ALTER TABLE task
 
 ALTER TABLE task
     ADD CONSTRAINT FK_TASK_ON_PROJECT FOREIGN KEY (project_id) REFERENCES project (id);
+
+CREATE INDEX idx_project_name ON project (name);

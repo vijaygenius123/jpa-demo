@@ -1,12 +1,15 @@
 package com.vijaygenius123.jpademo.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "project")
+@Table(name = "project", indexes = {
+        @Index(name = "idx_project_name", columnList = "name")
+})
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +23,7 @@ public class Project {
         return id;
     }
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     public String getName() {

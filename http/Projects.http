@@ -1,0 +1,19 @@
+
+POST http://localhost:8080/api/v1/project/new
+Content-Type: application/json
+
+{
+  "name": "Palanuya",
+  "tasks": [
+    {
+      "name": "Prepare Roadmap"
+    },
+    {
+      "name": "Complete R&D"
+    }
+  ]
+}
+
+###
+
+GET http://localhost:8080/api/v1/project/find/Palanuya

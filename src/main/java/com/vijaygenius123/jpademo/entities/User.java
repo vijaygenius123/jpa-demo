@@ -2,9 +2,11 @@ package com.vijaygenius123.jpademo.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "\"user\"")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +30,17 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "manager", orphanRemoval = true)
+    private Set<Project> projects = new LinkedHashSet<>();
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
 
     public String getEmail() {
         return email;
